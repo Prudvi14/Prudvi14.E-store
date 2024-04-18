@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>  
+body{
+    background-color: rgb(29, 27, 27);
+}
+.page-title {
+    font-family: Arial, sans-serif;
+    font-size: 2rem; /* Adjust font size as needed */
+    font-weight: bold;
+    color: white; /* Adjust text color as needed */
+    text-align: center; /* Center the text */
+    padding: 20px 0; /* Add padding above and below the heading */
+    background-color: #f8f9fa; /* Background color for the heading */
+}
+.text-black{
+    color: #333; /* Adjust text color as needed */
+}
+.navigation-list {
+     /*align list items to the right */
+    justify-content: flex-end;
+}
+.item-gap {
+    margin-right: 20px; 
+    /* Adjust the gap as needed */
+}
+
+/* for search bar*/
+input{
+    border-radius: 10px;
+    border-color: black;
+}
+/* for button in search bar*/
+button{
+    color: white;
+    border-radius: 10px;
+}
+/* cart */
+.image-link img {
+    width: 30px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+  }
+/* cart */
+
+ /* slideshow  */
+ #slideshow-container {
+    width: 1000px; 
+    height: 500px; 
+    margin: 0 auto; /* Center the container horizontally */
+    overflow: hidden; 
+    border: 1px solid #ccc; 
+    position: relative; /* Added position relative */
+}
+
+#slideshow-container img {
+    width: 100%; 
+    height: 100%; /* Adjusted height to fit the container */
+    object-fit: cover; /* Ensure the image covers the container */
+    position: absolute; /* Position images absolutely within the container */
+    top: 0; /* Align image to the top */
+    left: 0; /* Align image to the left */
+    transition: opacity 0.5s ease; /* Smooth transition for fade effect */
+}
+ /* slideshow  */
+
+/*body*/
+.product {
+    background-color: rgb(29, 27, 27);
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    color: white;
+}
+.product img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.product h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.product p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.btn-primary {
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+}
+.btn-primary:hover {
+    background-color: #0056b3 !important;
+    border-color: #0056b3 !important;
+}
+
+/*body*/
+/* Footer */
+footer {
+    /* background-color: #343a40; */
+    color: #ffffff;
+    padding: 20px 0;
+}
+#links{
+    text-decoration: none;
+}
+.details{
+    text-align: start;
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 bg-dark page-title">E-Store</div>
+        </div>
+        <div class="row">
+            <div class="col-12 bg-dark">
+                <div class="d-flex navigation-list">
+                    <a href="#" class="btn btn-outline-primary item-gap text-white">Home</a>
+                    <a href="#about" class="btn btn-outline-warning item-gap text-white">About us</a>
+                    <a href="#contact" class="btn btn-outline-danger item-gap text-white">Contact Us</a>
+                    <input placeholder="search GP Electronics.in" >
+                    <button class="bg-dark">Search</button>
+                    <a class="image-link" href="cart.html">
+                        <img src="cart img.jpg" alt=".">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation -->
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <h1 class="mt-4 text-white">Welcome to Our E-Commerce Store!</h1>
+        <p class="lead text-white">Check out our latest products below:</p>
+
+        <!-- slideshow -->
+        <div id="slideshow-container"> 
+            <img name="slide" alt="slide"> 
+        </div>
+        <!-- slideshow -->
+
+        <div class="row">
+            <!-- Products -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product">
+                    <img src="hp1.jpg" alt="Product Image">
+                    <h3>HP Laptop 15s</h3>
+                    <h3 id="price">₹53,990</h3>
+                    <p>12th Gen Intel Core i5-1235U, 15.6-inch (39.6 cm), FHD, 16GB DDR4, 512GB SSD, Intel Iris Xe Graphics, Backlit KB,MSO,Thin & Light, Dual Speakers (Win 11, Silver, 1.69 kg), fq5330TU</p>
+                    <button onclick="addToCart('HP Laptop 15s',53990)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product">
+                    <img src="dell 1.jpg" alt="Product Image">
+                    <h3>Dell 14</h3>
+                    <h3 id="price">₹47,990</h3>
+                    <p>Intel 12th Gen Core i5-1235U Processor Laptop/8GB/512GB SSD/14.0" (35.56cm) FHD Display/Intel UHD Graphics/Spill-Resistant Keyboard/Win 11 + MSO'21/Black/15 Month McAfee, Thin & Light-1.48kg</p>
+                    <button onclick="addToCart('Dell 14',47990)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product">
+                    <img src="Asus1.jpg" alt="Product Image">
+                    <h3>ASUS Vivobook 15</h3>
+                    <h3 id="price">₹38,990</h3>
+                    <p>Intel Core i3-1220P 12th Gen, 15.6" (39.62 cm) FHD, Thin and Laptop (8GB/512GB SSD/Integrated Graphics/Windows 11/Office 2021/Alexa Built-in/FP Sensor/Blue/1.7 kg), X1502ZA-EJ381WS</p>
+                    <button onclick="addToCart('ASUS Vivobook 15',38990)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!--next row -->
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product">
+                    <img src="asus2.webp" alt="Product Image">
+                    <h3>Lenovo Legion 5 Pro</h3>
+                    <h3 id="price">₹91,190</h3>
+                    <p>AMD Ryzen 7 5800H 16" (40.64cm) QHD IPS 165Hz 500Nits Gaming Laptop (16GB/1TB SSD/Win 11/Office 2021/NVIDIA RTX 3060 6GB/Alexa/3 Month Game Pass/Storm Grey/2.45Kg), 82JQ011FIN</p>
+                    <button onclick="addToCart('Lenovo Legion 5 Pro',91190)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product">
+                    <img src="acer2.jpg" alt="Product Image">
+                    <h3>Acer Predator Helios 300</h3>
+                    <h3 id="price">₹3,19,990</h3>
+                    <p>Gaming Laptop Intel Core i9 12th Gen-(Windows 11 Home/32 GB/2 TB SSD/NVIDIA RTX 3080) PH315-55s with 39.6 Cm (15.6 Inches) UHD IPS Display, 3 KG, Glasses-Free Stereoscopic 3D</p>
+                    <button onclick="addToCart('Acer Predator Helios 300',319990)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product">
+                    <img src="apple2.jpg" alt="Product Image">
+                    <h3>Apple 2023 MacBook Pro</h3>
+                    <h3 id="price">₹3,99,900</h3>
+                    <p>16-inch, M3 Max chip with 16‑core CPU and 40‑core GPU, 48GB Unified Memory, 1TB - Space Black</p>
+                    <button onclick="addToCart('Apple 2023 MacBook Pro',399900)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <!--next row -->
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product">
+                    <img src="cannon.webp" alt="Product Image">
+                    <h3>Canon</h3>
+                    <h3 id="price">₹69,990</h3>
+                    <p>Digital Camera EOS R50 RF-S18-45mm is STM (Black)</p>
+                    <button onclick="addToCart('Canon',69990)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product">
+                    <img src="sony3.webp" alt="Product Image">
+                    <h3>Sony Alpha ILCE-7M4K</h3>
+                    <h3 id="price">₹2,22,489</h3>
+                    <p>Full-Frame Hybrid Camera 33MP Interchangeable-Lens Mirrorless Camera with 28-70mm Digital Zoom Lens (4K 60P Video Recording, Real-Time Eye AF for Humans, Birds, Animals) - Black</p>
+                    <button onclick="addToCart('Sony Alpha ILCE-7M4K',222489)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4 ">
+                <div class="product">
+                    <img src="nikon.webp" alt="Product Image">
+                    <h3>Nikon Z6 II</h3>
+                    <h3 id="price">₹1,80,999</h3>
+                    <p>Mirrorless Camera Z 24-70mm Lens with Additional Battery, Optical Zoom, Black</p>
+                    <button onclick="addToCart('Nikon Z6 II',180999)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <!--next row -->
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product">
+                    <img src="oneplus.webp" alt="Product Image">
+                    <h3>OnePlus 12R</h3>
+                    <h3 id="price">₹39,990</h3>
+                    <p>Cool Blue, 8GB RAM, 128GB Storage, 5500 mAh Battery with 100W SUPERVOOC, OxygenOS</p>
+                    <button onclick="addToCart('OnePlus 12R',39990)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product">
+                    <img src="iphone.jpg" alt="Product Image">
+                    <h3>Apple iPhone 15</h3>
+                    <h3 id="price">₹73,100</h3>
+                    <p>Black, 128 GB, A16 Bionic Processor, 48 MP Main Camera, it's USB-C compatible, Highly Durable</p>
+                    <button onclick="addToCart('Apple iPhone 15',73100)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4 ">
+                <div class="product">
+                    <img src="iqoo.webp" alt="Product Image">
+                    <h3>iQOO Neo9 Pro 5G</h3>
+                    <h3 id="price">₹36,999</h3>
+                    <p>Fiery Red, 8GB RAM, 256GB Storage | Snapdragon 8 Gen 2 Processor | Supercomputing Chip Q1 | Flagship Level Sony IMX920 Camera</p>
+                    <button onclick="addToCart('iQOO Neo9 Pro 5G',36999)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <!--next row -->
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product">
+                    <img src="samsung.webp" alt="Product Image">
+                    <h3>Samsung Galaxy Tab S6 Lite</h3>
+                    <h3 id="price">₹22,499</h3>
+                    <p>10.4 inch, S-Pen in Box, Slim and Light, Dolby Atmos Sound, 4 GB RAM, 64 GB ROM, Wi-Fi Tablet, Gray</p>
+                    <button onclick="addToCart('Samsung Galaxy Tab S6 Lite',22499)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product">
+                    <img src="xmi.webp" alt="Product Image">
+                    <h3>Xiaomi Pad 6</h3>
+                    <h3 id="price">₹26,999</h3>
+                    <p>Qualcomm Snapdragon 870| Powered by HyperOS | 144Hz Refresh Rate| 6GB, 128GB| 2.8K+ Display (11-inch/27.81cm) Tablet| Dolby Vision Atmos| Quad Speakers| Wi-Fi| Gray</p>
+                    <button onclick="addToCart('Xiaomi Pad 6',26999)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4 ">
+                <div class="product">
+                    <img src="moto.jpg" alt="Product Image">
+                    <h3>Motorola Tab G70</h3>
+                    <h3 id="price">₹14,999</h3>
+                    <p>11 Inch Display, 2K Resolution | 4 GB RAM, 64 GB ROM | Wi-Fi + 4G | Mediatek Helio G90T Processor | Quadcore Speakers with Dolby Atmos | Face Unlock Feature & Google Assistant</p>
+                    <button onclick="addToCart('Motorola Tab G70',14999)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <!--next row -->
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product">
+                    <img src="noise.jpg" alt="Product Image">
+                    <h3>Noise Twist Round dial</h3>
+                    <h3 id="price">₹1,199</h3>
+                    <p>Smart Watch with Bluetooth Calling, 1.38" TFT Display, up-to 7 Days Battery, 100+ Watch Faces, IP68, Heart Rate Monitor, Sleep Tracking (Jet Black)</p>
+                    <button onclick="addToCart('Noise Twist Round dial',1199)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product">
+                    <img src="boat.jpg" alt="Product Image">
+                    <h3>boAt Wave Call 2</h3>
+                    <h3 id="price">₹1,099</h3>
+                    <p>1.83" HD Display, Advanced BT Calling, DIY Watch Face Studio, Coins, 700+Active Modes, Live Cricket Scores, Smart Watch for Men & Women(Cherry Blossom)</p>
+                    <button onclick="addToCart('boAt Wave Call 2',1099)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4 ">
+                <div class="product">
+                    <img src="firebolt.jpg" alt="Product Image">
+                    <h3>Fire-Boltt Ninja Call Pro Plus</h3>
+                    <h3 id="price">₹1,149</h3>
+                    <p>1.83" Smart Watch with Bluetooth Calling, AI Voice Assistance, 100 Sports Modes IP67 Rating, 240 * 280 Pixel High Resolution</p>
+                    <button onclick="addToCart('Fire-Boltt Ninja Call Pro Plus',1149)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <!--next row -->
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product">
+                    <img src="realme.jpg" alt="Product Image">
+                    <h3>realme Buds T300</h3>
+                    <h3 id="price">₹1,999</h3>
+                    <p>TWS Earbuds with 40H Play time,30dB ANC, 360° Spatial Audio with Dolby Atmos, 12.4 mm Dynamic Bass Boost Driver, IP55 Water & Dust Resistant, BT v5.3 (Stylish Black)</p>
+                    <button onclick="addToCart('realme Buds T300',1999)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product">
+                    <img src="oneplus buds.jpg" alt="Product Image">
+                    <h3>OnePlus Nord Buds 2</h3>
+                    <h3 id="price">₹2,499</h3>
+                    <p>TWS in Ear Earbuds with Mic, Upto 25dB ANC 12.4mm Dynamic Titanium Drivers, Playback:Upto 36hr case, 4-Mic Design, IP55 Rating, Fast Charging [White]</p>
+                    <button onclick="addToCart('OnePlus Nord Buds 2',2499)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4 ">
+                <div class="product">
+                    <img src="sony head.jpg" alt="Product Image">
+                    <h3>Sony WH-1000XM5 Wireless</h3>
+                    <h3 id="price">₹31,990</h3>
+                    <p>The Best Active Noise Cancelling Headphones, 8 Mics for Clear Calling, Battery- 40Hrs(w/o NC), 30Hrs(with NC), 3Min Quick Charge=3Hrs Playback, Multi Point Connectivity -Black</p>
+                    <button onclick="addToCart('Sony WH-1000XM5 Wireless',31990)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <!--next row -->
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product">
+                    <img src="bose.jpg" alt="Product Image">
+                    <h3>Bose Quietcomfort 45</h3>
+                    <h3 id="price">₹19,900</h3>
+                    <p>Bluetooth Wireless Over Ear Headphones with Mic Noise Cancelling - White Smoke</p>
+                    <button onclick="addToCart('Bose Quietcomfort 45',19900)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product">
+                    <img src="jbl.jpg" alt="Product Image">
+                    <h3>JBL C100SI Wired</h3>
+                    <h3 id="price">₹599</h3>
+                    <p>In Ear Headphones with Mic, JBL Pure Bass Sound, One Button Multi-function Remote, Premium Metallic Finish, Angled Buds for Comfort fit (Red)</p>
+                    <button onclick="addToCart('JBL C100SI Wired',599)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4 ">
+                <div class="product">
+                    <img src="neckband.jpg" alt="Product Image">
+                    <h3>OnePlus Bullets Wireless Z2</h3>
+                    <h3 id="price">₹2,199</h3>
+                    <p>ANC Bluetooth in Ear Earphones with Mic, 45dB Hybrid ANC, Bombastic Bass - 12.4 mm Drivers, 10 Mins Charge - 20 Hrs Music, 28 Hrs Battery (Green)</p>
+                    <button onclick="addToCart('OnePlus Bullets Wireless Z2',2199)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <!--next row -->
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product">
+                    <img src="home de.jpg" alt="Product Image">
+                    <h3>Sony HT-S20R</h3>
+                    <h3 id="price">₹17,250</h3>
+                    <p>Real 5.1ch Dolby Digital Soundbar for TV with subwoofer and Compact Rear Speakers, 5.1ch Home Theatre System (400W,Bluetooth & USB Connectivity, HDMI & Optical connectivity)</p>
+                    <button onclick="addToCart('Sony HT-S20R',17250)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product">
+                    <img src="zebronics.jpg" alt="Product Image">
+                    <h3>Zebronics ZEB-COUNTY</h3>
+                    <h3 id="price">₹499</h3>
+                    <p>3W Wireless Bluetooth Portable Speaker With Supporting Carry Handle, USB, SD Card, AUX, FM & Call Function. (Black)</p>
+                    <button onclick="addToCart('Zebronics ZEB-COUNTY',499)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4 ">
+                <div class="product">
+                    <img src="lg.jpg" alt="Product Image">
+                    <h3>LG</h3>
+                    <h3 id="price">₹13,990</h3>
+                    <p>80 cm (32 inches) HD Ready Smart LED TV 32LM563BPTC (Dark Iron Gray)</p>
+                    <button onclick="addToCart('LG',13990)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <!--next row -->
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product">
+                    <img src="tcl.jpg" alt="Product Image">
+                    <h3>TCL</h3>
+                    <h3 id="price">₹49,990</h3>
+                    <p>164 cm (65 inches) Bezel-Less Series 4K Ultra HD Smart LED Google TV 65P635 (Black)</p>
+                    <button onclick="addToCart('TCL',49990)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="product">
+                    <img src="voltas.jpg" alt="Product Image">
+                    <h3>Voltas 1.5 Ton</h3>
+                    <h3 id="price">₹31,900</h3>
+                    <p>3 Star, Inverter Split AC(Copper, 4-in-1 Adjustable Mode, Anti-dust Filter, 2023 Model, 183V Vectra Prism, White)</p>
+                    <button onclick="addToCart('Voltas 1.5 Ton',31900)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4 ">
+                <div class="product">
+                    <img src="bluestar.jpg" alt="Product Image">
+                    <h3>Blue Star</h3>
+                    <h3 id="price">₹43,990</h3>
+                    <p>1.5 Ton 5 Star Convertible 5 in 1 Cooling Inverter Split Air Conditioner (IC518YNU, White)</p>
+                    <button onclick="addToCart('Blue Star',43990)" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+       <!-- Products -->
+    </div>
+    <!-- /.container -->
+
+
+
+    <footer class="footer text-center bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-3 details">
+                    <h5 class="text-white" id="contact">Connect with Us</h5>
+                    <div class="list-group">
+                        <a href="https://www.facebook.com/" class="bg-dark" id="links">Facebook</a>
+                        <a href="https://twitter.com/i/flow/logina" class="bg-dark" id="links">Twitter</a>
+                        <a href="https://www.instagram.com/" class="bg-dark" id="links">Instagram</a>
+                    </div>
+                </div>
+                <div class="col-3 details">
+                    <h5 class="text-white" id="about">Get to Know Us</h5>
+                    <div class="list-group">
+                        <a href="About.html" class="bg-dark" id="links">About Us</a>
+                        <a href="#" class="bg-dark" id="links">Careers</a>
+                        <a href="#" class="bg-dark" id="links">Press Releases</a>
+                    </div>
+                </div>
+                <div class="col-3 details">
+                    <h5 class="text-white">Let Us Help You</h5>
+                    <div class="list-group">
+                        <a href="#" class="bg-dark" id="links">Your Account</a>
+                        <a href="#" class="bg-dark" id="links">Returns Centre</a>
+                        <a href="#" class="bg-dark" id="links">100% Purchase Protection</a>
+                        <a href="Help.html" class="bg-dark" id="links">Help</a>
+                    </div>
+                </div>
+                <div class="col-3 details">
+                    <h5 class="text-white" >Make Money with Us</h5>
+                    <div class="list-group">
+                        <a href="#" class="bg-dark" id="links">Sell on Website</a>
+                        <a href="#" class="bg-dark" id="links">Protect and Build Your Brand</a>
+                        <a href="#" class="bg-dark" id="links">Become an Affiliate</a>
+                        <a href="#" class="bg-dark" id="links">Advertise Your Products</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <span class="text-white">© 2024 E-Commerce Website. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+<script>
+        var i = 0;
+        var images = ['offfer1.jpg','offer2.jpg','offer3.jpg','offer4.jpg'];
+        var slide = document.querySelector('[name="slide"]');
+
+        function changeImage() {
+            slide.src = images[i];
+            if (i < images.length - 1) {
+                i++;
+            } else {
+                i = 0;
+            }
+            setTimeout(changeImage, 6000);
+        }
+
+        changeImage();
+
+
+    function addToCart(name,price) {
+      var cart = localStorage.getItem('cart');
+      if (!cart) {
+          cart = [];
+      } else {
+          cart = JSON.parse(cart);
+      }
+      var product = { name: name, price: price }; 
+      cart.push(product);
+      localStorage.setItem('cart', JSON.stringify(cart));
+  }
+
+    </script>
+</body>
+</html>

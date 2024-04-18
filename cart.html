@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" type="image/png" href="logo.png">
+    <title>Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .cart-item button {
+            height: 30px;
+            width: 80px;
+            border-radius: 5px;
+            font-size: 14px;
+            background-color: rgb(67 0 86);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .cart-item button:hover {
+            background-color:rgb(67 0 86);
+        }
+
+        #total {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        button.checkout-btn {
+            margin-top: 20px;
+            height: 40px;
+            width: 120px;
+            border-radius: 10px;
+            font-size: 16px;
+            background-color: rgb(67 0 86);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            text-decoration-line: none;
+        }
+
+        button.checkout-btn:hover {
+            background-color:rgb(67 0 86);
+            color: #fff;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Shopping Cart</h1>
+    <form id="cart-form">
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items"></tbody>
+        </table>
+        <p id="total">Total: </p>
+
+
+        <button type="submit" class="checkout-btn" onclick="success(event)">Check Out</button>
+    </form>
+
+    <script>
+        var cartItemsList = document.getElementById('cart-items');
+        var totalSpan = document.getElementById('total');
+        var cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function success(event) {
+            event.preventDefault(); // Prevent default form submission behavior
+            alert("Order Success!!");
+            window.location.href = "Home.html"; // Redirect to Home.html after clicking OK
+        }
+
+
+        function updateCart() {
+            cartItemsList.innerHTML = '';
+            var totalAmount = 0;
+            cart.forEach(function(product, index) {
+                var row = document.createElement('tr');
+                row.className = "cart-item";
+                row.innerHTML = `
+                    <td>${product.name}</td>
+                    <td>${product.price}</td>
+                    <td><button class="remove-btn" onclick="removeItem(${index})">Remove</button></td>
+                `;
+                cartItemsList.appendChild(row);
+                totalAmount += parseFloat(product.price);
+            });
+            totalSpan.textContent = 'Total: ₹' + totalAmount.toFixed(2);
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1); // Remove product from cart array
+            localStorage.setItem('cart', JSON.stringify(cart)); // Update local storage
+            updateCart();
+        }
+
+        updateCart();
+        function redirectToContactPage() {
+            var cartItems = JSON.stringify(cart);
+            window.location.href = 'Home.html?cart=' + encodeURIComponent(cartItems);
+        }
+    </script>
+</body>
+</html>
